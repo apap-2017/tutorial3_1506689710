@@ -1,0 +1,27 @@
+1. Data berhasil ditambahkan. Tidak terjadi error
+2. Terjadi error karena parameter gpa tidak ada.
+3. Data student muncul dengan benar sesuai npm.
+4. Tidak muncul, karena saat program dimatikan data yang sudah disimpan akan terhapus semua.
+5. Data student muncul dengan sesuai.
+6. Semua data muncul dengan sesuai.
+
+Jadi pada tutorial kali ini, saya mempelajari bagaimana membuat suatu model dengan servicenya. 
+Serta bagaimana menggunakan service tersebut pada controller dan dilanjutkan dengan viewnya.
+Sehingga saya tau bagaimana alur proses dari model-view-controller secara singkat.
+
+Dalam membuat fitur delete, pertama-tama saya menambah sebuah method removeStudent pada interface StudentService.
+Kemudian saya melanjutkan mengimplementasikan method tersebut pada InMemoryStudentService.
+Dilanjutkan dengan membuat method untuk menghapus siswa di Controller dengan view template yang dibutuhkan yaitu remove dan removeerror.
+
+@Override
+    public StudentModel selectStudent(String npm) {
+        StudentModel result = null;
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getNpm().equals(npm))
+            {
+                result = studentList.get(i);
+                i = studentList.size();
+            }
+        }
+        return result;
+    }
